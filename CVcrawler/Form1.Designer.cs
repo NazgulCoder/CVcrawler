@@ -32,10 +32,12 @@ namespace CVcrawler
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ResultList = new System.Windows.Forms.ListView();
             this.NameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
             this.tutBtn = new System.Windows.Forms.Button();
             this.AnalyzeBtn = new System.Windows.Forms.Button();
             this.extractBtn = new System.Windows.Forms.Button();
+            this.keyTextBox = new System.Windows.Forms.TextBox();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.openBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ResultList
@@ -57,16 +59,6 @@ namespace CVcrawler
             // 
             this.NameColumnHeader.Text = "Name of CV";
             this.NameColumnHeader.Width = 203;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(244, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tutBtn
             // 
@@ -98,15 +90,45 @@ namespace CVcrawler
             this.extractBtn.UseVisualStyleBackColor = true;
             this.extractBtn.Click += new System.EventHandler(this.extractBtn_Click);
             // 
+            // keyTextBox
+            // 
+            this.keyTextBox.Location = new System.Drawing.Point(244, 147);
+            this.keyTextBox.Name = "keyTextBox";
+            this.keyTextBox.Size = new System.Drawing.Size(75, 20);
+            this.keyTextBox.TabIndex = 6;
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(244, 173);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(75, 23);
+            this.searchBtn.TabIndex = 7;
+            this.searchBtn.Text = "Search Key";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // openBtn
+            // 
+            this.openBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openBtn.Location = new System.Drawing.Point(244, 202);
+            this.openBtn.Name = "openBtn";
+            this.openBtn.Size = new System.Drawing.Size(75, 23);
+            this.openBtn.TabIndex = 8;
+            this.openBtn.Text = "Open Selected";
+            this.openBtn.UseVisualStyleBackColor = true;
+            this.openBtn.Click += new System.EventHandler(this.openBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 280);
+            this.Controls.Add(this.openBtn);
+            this.Controls.Add(this.searchBtn);
+            this.Controls.Add(this.keyTextBox);
             this.Controls.Add(this.extractBtn);
             this.Controls.Add(this.AnalyzeBtn);
             this.Controls.Add(this.tutBtn);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.ResultList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -115,6 +137,7 @@ namespace CVcrawler
             this.Text = "CVcrawler";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -122,10 +145,12 @@ namespace CVcrawler
 
         private System.Windows.Forms.ListView ResultList;
         private System.Windows.Forms.ColumnHeader NameColumnHeader;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button tutBtn;
         private System.Windows.Forms.Button AnalyzeBtn;
         private System.Windows.Forms.Button extractBtn;
+        private System.Windows.Forms.TextBox keyTextBox;
+        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.Button openBtn;
     }
 }
 

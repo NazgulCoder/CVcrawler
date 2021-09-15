@@ -41,11 +41,6 @@ namespace CVcrawler
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ResultList.Items.Add("ok dio porco");
-        }
-
         private void tutBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("- Copy all the CVs you want to analyze into CVs (PDF Only)" + Environment.NewLine
@@ -66,7 +61,7 @@ namespace CVcrawler
                     int index = fileonly.Length - 1;
                     string toExec = path + "\\ImageMagick\\convert -density 300 "
                         + path + "\\CVs\\" + fileonly[index] + " -depth 8 -background white -alpha Off "
-                        + path + "\\crawled\\" + fileonly[index] + ".tiff";
+                        + path + "\\crawled\\" + System.IO.Path.GetFileNameWithoutExtension(file) + ".tiff";
 
                     Interaction.Shell(toExec);
                     executed++;
@@ -91,7 +86,7 @@ namespace CVcrawler
                     int index = fileonly.Length - 1;
                     string toExec = path + "\\Tesseract-OCR\\tesseract "
                         + path + "\\crawled\\" + fileonly[index] + " "
-                        + path + "\\CVsRead\\" + fileonly[index];
+                        + path + "\\CVsRead\\" + System.IO.Path.GetFileNameWithoutExtension(file);
 
                     Interaction.Shell(toExec);
                     executed++;
@@ -102,6 +97,29 @@ namespace CVcrawler
                 }
             }
             MessageBox.Show("Extrapolation process completed. Successfully Extracted text from " + executed + " pictures. Failed " + failed + " files.");
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            ResultList.Items.Clear();
+
+            foreach (string file in Directory.GetFiles(path + "\\CVsRead"))
+            {
+
+                string textRead = File.ReadAllText(file);
+                textRead = textRead.ToLower();
+
+                if (textRead.Contains(keyTextBox.Text))
+                {
+                    ResultList.Items.Add(System.IO.Path.GetFileNameWithoutExtension(file) + ".pdf");
+                }
+                
+            }
+        }
+
+        private void openBtn_Click(object sender, EventArgs e)
+        {
+            Process.Start(path + "\\CVs\\" + ResultList.FocusedItem.Text);
         }
     }
 }
