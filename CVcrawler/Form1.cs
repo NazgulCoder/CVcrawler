@@ -101,7 +101,7 @@ namespace CVcrawler
                     failed++;
                 }
             }
-            MessageBox.Show("Analyze process completed. Successfully Extracted text from " + executed + " pictures. Failed " + failed + " files.");
+            MessageBox.Show("Extrapolation process completed. Successfully Extracted text from " + executed + " pictures. Failed " + failed + " files.");
         }
     }
 }
