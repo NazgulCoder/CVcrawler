@@ -6,7 +6,7 @@ standalone portable bulk CV crawler using ImageMagick as picture converter and T
 ### Features
 Scans all PDF files (and should be able to scan Word Files as well) transforming them into .tiff images <br/>
 Then Tesseract-OCR will read out the images all the text <br/>
-For last, CVCrawler will read those text and will reference where keywords have been read from <br/> <br/>
+For last, CVCrawler will read those text and will reference where keywords have been read from <br/>
 
 Installation package has been done through InstallForge
 
